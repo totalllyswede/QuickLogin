@@ -1,2 +1,94 @@
 # QuickLogin
-QuickLogin is a lightweight Windows utility that securely types saved account credentials into the World of Warcraft login screen, then closes automatically.
+
+**QuickLogin** is a small Windows utility that streamlines logging into **World of Warcraft** by securely storing account credentials and typing them into the login screen on demand.
+
+It is designed for convenience and simplicity, with a clean interface and no background processes.
+
+---
+
+## ✨ What QuickLogin Does
+
+* Securely stores login credentials using **Windows Credential Manager**
+* Brings **World of Warcraft** to the foreground
+* Types the selected account’s username and password
+* Submits the login automatically
+* Exits immediately after completing the action
+
+QuickLogin does **not** interact with the game client beyond sending standard keyboard input.
+
+---
+
+## 📸 Screenshots
+
+### Main Window
+
+<img width="500" height="380" alt="A" src="https://github.com/user-attachments/assets/22ca0ee0-a625-4ffa-9f53-b53a6596abb6" />
+
+
+### Add / Edit Account
+
+
+<img width="480" height="360" alt="B" src="https://github.com/user-attachments/assets/3f783156-8ce1-4318-81e6-41f121678c8b" />
+
+---
+
+## 🖥️ Requirements
+
+* Windows 7 or newer
+* .NET Desktop Runtime 8
+* World of Warcraft running and on the login screen
+
+## 📁 Installation 
+
+* Download - QuickLogin.zip
+* Extract
+* Run QuickLogin.exe
+* Right Click > Send to Desktop to make a shortcut
+
+---
+
+## 🔒 Security
+
+* Credentials are stored **only** in Windows Credential Manager
+* No plaintext credential files
+* No network communication
+* No telemetry or background services
+
+All credentials are tied to the current Windows user account.
+
+---
+
+## 🚀 Usage
+
+1. Start **World of Warcraft** and wait at the login screen
+2. Launch **QuickLogin**
+3. Add one or more accounts
+4. Select an account from the dropdown
+5. Click **Log In**
+
+QuickLogin will focus the WoW window, type the credentials, submit the login, and then close automatically.
+
+---
+
+## ⚠️ Important Notes
+
+* The **“Remember Account Name”** option must be **unchecked** on the WoW login screen
+* This tool relies on simulated keyboard input and requires the login screen to be active
+* QuickLogin is intended for personal convenience only
+
+
+## ❓ FAQ
+
+Does QuickLogin automate gameplay?
+* No. It only types credentials at the login screen.
+
+Does it modify game files or memory?
+* No.
+
+Is this affiliated with Blizzard?
+* No. This is an independent, community-made utility.
+
+## 📄 License
+
+* This project is provided as-is for personal use.
+* No warranties are expressed or implied.
