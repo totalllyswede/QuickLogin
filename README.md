@@ -4,7 +4,7 @@
 
 It is designed for convenience and simplicity, with a clean interface and no background processes.
 
-## FYI - This program does not actually launch the wow client, only logs in to the game when wow is open, might add launcher functionality in the future just isn't what I needed the tool for.
+### FYI - This program does not actually launch the wow client, only logs in to the game when wow is open, might add launcher functionality in the future just isn't what I needed the tool for.
 
 ---
 
