@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>QuickLogin</id>
+    <version>1.0.0</version>
+    <authors>QuickLogin</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="ae312b9af4df8df7ce64ffa3bce55a59100a1ed2" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="CredentialManagement" version="1.0.2" exclude="Build,Analyzers" />
+        <dependency id="InputSimulatorStandard" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/quicklogin_icon.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\bass_\source\repos\QuickLogin\QuickLogin\bin\Release\net8.0-windows7.0\QuickLogin.runtimeconfig.json" target="lib\net8.0-windows7.0\QuickLogin.runtimeconfig.json" />
+    <file src="C:\Users\bass_\source\repos\QuickLogin\QuickLogin\bin\Release\net8.0-windows7.0\QuickLogin.dll" target="lib\net8.0-windows7.0\QuickLogin.dll" />
+    <file src="C:\Users\bass_\source\repos\QuickLogin\QuickLogin\quicklogin_icon.ico" target="content\quicklogin_icon.ico" />
+    <file src="C:\Users\bass_\source\repos\QuickLogin\QuickLogin\quicklogin_icon.ico" target="contentFiles\any\net8.0-windows7.0\quicklogin_icon.ico" />
+  </files>
+</package>

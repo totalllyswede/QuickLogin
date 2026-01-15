@@ -15,10 +15,14 @@ namespace QuickLogin
             "accounts.json"
         );
 
+        private string? _wowExePath;
+        private bool _launchWowEnabled;
+
         public MainWindow()
         {
             InitializeComponent();
             LoadAccountsFromFile();
+            LoadLauncherSettings();
         }
 
         /// <summary>
@@ -49,6 +53,23 @@ namespace QuickLogin
         }
 
         /// <summary>
+        /// Load the saved WoW executable path and launch preference on startup
+        /// </summary>
+        private void LoadLauncherSettings()
+        {
+            _wowExePath = GameLauncherService.LoadWowExePath();
+            _launchWowEnabled = GameLauncherService.LoadLaunchEnabled();
+
+            // Update UI to show current settings
+            if (!string.IsNullOrEmpty(_wowExePath))
+            {
+                ExePathText.Text = Path.GetFileName(_wowExePath);
+            }
+
+            LaunchWowCheckbox.IsChecked = _launchWowEnabled;
+        }
+
+        /// <summary>
         /// Save current account list to JSON file (metadata only)
         /// </summary>
         private void SaveAccountsToFile()
@@ -62,6 +83,39 @@ namespace QuickLogin
             {
                 MessageBox.Show($"Failed to save accounts: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Browse for WoW.exe
+        /// </summary>
+        private void BrowseWowExe_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Executable Files (*.exe)|*.exe",
+                Title = "Select World of Warcraft Executable",
+                FileName = "Wow.exe"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                _wowExePath = dialog.FileName;
+                GameLauncherService.SaveWowExePath(_wowExePath);
+
+                ExePathText.Text = Path.GetFileName(_wowExePath);
+
+                MessageBox.Show("WoW executable path saved!", "Success",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        /// <summary>
+        /// Handle checkbox change for launch preference
+        /// </summary>
+        private void LaunchWowCheckbox_Changed(object sender, RoutedEventArgs e)
+        {
+            _launchWowEnabled = LaunchWowCheckbox.IsChecked == true;
+            GameLauncherService.SaveLaunchEnabled(_launchWowEnabled);
         }
 
         /// <summary>
@@ -138,11 +192,35 @@ namespace QuickLogin
             this.Close();
         }
 
+        /// <summary>
+        /// Open the Help window
+        /// </summary>
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            var helpWindow = new HelpWindow { Owner = this };
+            helpWindow.ShowDialog();
+        }
 
         /// <summary>
         /// Focus World of Warcraft, type credentials, then close app
         /// </summary>
         private async void TypeCredentials_Click(object sender, RoutedEventArgs e)
+        {
+            await PerformLogin(shouldClose: true);
+        }
+
+        /// <summary>
+        /// Focus World of Warcraft, type credentials, do not close app
+        /// </summary>
+        private async void TypeCredentials_ClickStay(object sender, RoutedEventArgs e)
+        {
+            await PerformLogin(shouldClose: false);
+        }
+
+        /// <summary>
+        /// Main login logic - launches WoW if enabled, then types credentials
+        /// </summary>
+        private async Task PerformLogin(bool shouldClose)
         {
             if (AccountCombo.SelectedItem is not AccountEntry account)
                 return;
@@ -155,9 +233,32 @@ namespace QuickLogin
                 return;
             }
 
-            string targetWindow = "World of Warcraft";
+            const string targetWindow = "World of Warcraft";
 
-            // Focus WoW
+            // Launch WoW if checkbox is enabled
+            if (_launchWowEnabled)
+            {
+                if (string.IsNullOrEmpty(_wowExePath) || !File.Exists(_wowExePath))
+                {
+                    MessageBox.Show("WoW executable path not set. Please browse for Wow.exe first.",
+                        "Path Not Set", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                bool launched = GameLauncherService.LaunchWow(_wowExePath);
+
+                if (!launched)
+                {
+                    MessageBox.Show("Failed to launch World of Warcraft.", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Wait 10 seconds for game to start
+                await Task.Delay(10000);
+            }
+
+            // Try to focus WoW window
             bool focused = WindowHelper.FocusWindowByTitle(targetWindow);
             if (!focused)
             {
@@ -178,55 +279,14 @@ namespace QuickLogin
             // Refocus WoW just in case
             WindowHelper.FocusWindowByTitle(targetWindow);
 
-            // Close app
-            Application.Current.Shutdown();
-        }
-
-        /// <summary>
-        /// Focus World of Warcraft, type credentials, do not close app
-        /// </summary>
-        private async void TypeCredentials_ClickStay(object sender, RoutedEventArgs e)
-        {
-            if (AccountCombo.SelectedItem is not AccountEntry account)
-                return;
-
-            var password = CredentialService.GetPassword(account.CredentialKey);
-            if (password == null)
-            {
-                MessageBox.Show("Password not found in Credential Manager.", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            string targetWindow = "World of Warcraft";
-
-            // Focus WoW
-            bool focused = WindowHelper.FocusWindowByTitle(targetWindow);
-            if (!focused)
-            {
-                MessageBox.Show($"Could not find window: {targetWindow}", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Wait for window to be ready
-            await Task.Delay(500);
-
-            // Type credentials with delay
-            await TypingService.TypeLoginAsync(account.Username, password);
-
-            // Extra delay to ensure TAB/ENTER registers
-            await Task.Delay(240);
-
-            // Refocus WoW just in case
-            WindowHelper.FocusWindowByTitle(targetWindow);
-
+            // Close app if requested
+            if (shouldClose)
+                Application.Current.Shutdown();
         }
 
         private void AccountCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
-
+            // Can be used to enable/disable buttons based on selection
         }
     }
 }

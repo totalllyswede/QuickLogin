@@ -1,0 +1,186 @@
+﻿<Window x:Class="QuickLogin.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Help"
+        Height="480"
+        Width="550"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        BorderThickness="30"
+        BorderBrush="#801A1A2E"
+        Background="#DD1A1A2E"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style x:Key="CloseButton" TargetType="Button">
+            <Setter Property="Background" Value="#E74C3C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="17.5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"
+                                            Margin="0,-2,0,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#C0392B"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A93226"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <!-- Close button -->
+        <Button Content="✕" 
+                Style="{StaticResource CloseButton}"
+                Click="Close_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,5,5,0"
+                Panel.ZIndex="1"/>
+
+        <!-- Content -->
+        <ScrollViewer Margin="10,45,10,10" 
+                      VerticalScrollBarVisibility="Auto"
+                      Background="Transparent">
+            <StackPanel>
+                <!-- Title -->
+                <TextBlock Text="QuickLogin Help"
+                           FontFamily="Segoe UI Light"
+                           FontSize="28"
+                           Foreground="White"
+                           Margin="0,0,0,25"
+                           HorizontalAlignment="Center"/>
+
+                <!-- Getting Started -->
+                <TextBlock Text="Getting Started"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="18"
+                           Foreground="#14FFEC"
+                           Margin="0,0,0,12"/>
+
+                <TextBlock TextWrapping="Wrap"
+                           FontFamily="Segoe UI"
+                           FontSize="14"
+                           Foreground="#E4E4E4"
+                           LineHeight="22"
+                           Margin="0,0,0,20">
+                    <Run Text="1."/>
+                    <Run Text="Click" FontWeight="SemiBold"/> 
+                    <Run Text="'+ Add Account'" FontWeight="SemiBold"/>
+                    <Run Text="to save your credentials"/>
+                    <LineBreak/>
+                    <Run Text="2."/>
+                    <Run Text="Enter a display name, username, and password"/>
+                    <LineBreak/>
+                    <Run Text="3."/>
+                    <Run Text="Select an account from the dropdown"/>
+                    <LineBreak/>
+                    <Run Text="4."/>
+                    <Run Text="Click" FontWeight="SemiBold"/>
+                    <Run Text="'Login'" FontWeight="SemiBold"/>
+                    <Run Text="or" FontWeight="SemiBold"/>
+                    <Run Text="'Login &amp; Close'" FontWeight="SemiBold"/>
+                </TextBlock>
+
+                <!-- Auto-Launch Feature -->
+                <TextBlock Text="Auto-Launch Feature (Optional)"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="18"
+                           Foreground="#14FFEC"
+                           Margin="0,0,0,12"/>
+
+                <TextBlock TextWrapping="Wrap"
+                           FontFamily="Segoe UI"
+                           FontSize="14"
+                           Foreground="#E4E4E4"
+                           LineHeight="22"
+                           Margin="0,0,0,20">
+                    <Run Text="•" FontWeight="Bold"/>
+                    <Run Text="Click" FontWeight="SemiBold"/>
+                    <Run Text="'Browse'" FontWeight="SemiBold"/>
+                    <Run Text="to select your Wow.exe file"/>
+                    <LineBreak/>
+                    <Run Text="•" FontWeight="Bold"/>
+                    <Run Text="Check" FontWeight="SemiBold"/>
+                    <Run Text="'Auto-launch game when logging in'" FontWeight="SemiBold"/>
+                    <LineBreak/>
+                    <Run Text="•"/>
+                    <Run Text="The game will launch automatically and wait 10 seconds before logging you in"/>
+                </TextBlock>
+
+                <!-- Important -->
+                <TextBlock Text="Important Requirements"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="18"
+                           Foreground="#E74C3C"
+                           Margin="0,0,0,12"/>
+
+                <TextBlock TextWrapping="Wrap"
+                           FontFamily="Segoe UI"
+                           FontSize="14"
+                           Foreground="#E4E4E4"
+                           LineHeight="22"
+                           Margin="0,0,0,20">
+                    <Run Text="⚠" Foreground="#E74C3C" FontSize="16"/>
+                    <Run Text="'Remember Account Name'" FontWeight="SemiBold"/>
+                    <Run Text="must be"/>
+                    <Run Text="UNCHECKED" FontWeight="Bold"/>
+                    <Run Text="on the WoW login screen"/>
+                    <LineBreak/>
+                    <Run Text="⚠" Foreground="#E74C3C" FontSize="16"/>
+                    <Run Text="If not using auto-launch, WoW must be open at the login screen"/>
+                    <LineBreak/>
+                    <Run Text="✓" Foreground="#27AE60" FontSize="16"/>
+                    <Run Text="Passwords are stored securely in Windows Credential Manager"/>
+                </TextBlock>
+
+                <!-- Button Guide -->
+                <TextBlock Text="Button Functions"
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="18"
+                           Foreground="#14FFEC"
+                           Margin="0,0,0,12"/>
+
+                <TextBlock TextWrapping="Wrap"
+                           FontFamily="Segoe UI"
+                           FontSize="14"
+                           Foreground="#E4E4E4"
+                           LineHeight="22"
+                           Margin="0,0,0,10">
+                    <Run Text="+ Add Account" FontWeight="SemiBold"/>
+                    <Run Text="— Create a new account entry"/>
+                    <LineBreak/>
+                    <Run Text="− Remove Account" FontWeight="SemiBold"/>
+                    <Run Text="— Delete the selected account"/>
+                    <LineBreak/>
+                    <Run Text="Login &amp; Close" FontWeight="SemiBold"/>
+                    <Run Text="— Type credentials and close QuickLogin"/>
+                    <LineBreak/>
+                    <Run Text="Login" FontWeight="SemiBold"/>
+                    <Run Text="— Type credentials and keep QuickLogin open"/>
+                    <LineBreak/>
+                    <Run Text="Exit" FontWeight="SemiBold"/>
+                    <Run Text="— Close QuickLogin without logging in"/>
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -6,13 +6,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Qicon.ico</ApplicationIcon>
+    <ApplicationIcon>quicklogin_icon.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.2</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Qicon.ico" />
+    <Content Include="quicklogin_icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
