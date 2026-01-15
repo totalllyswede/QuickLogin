@@ -1,30 +1,21 @@
 # QuickLogin
 
-**QuickLogin** is a small Windows utility that streamlines logging into **World of Warcraft** by securely storing account credentials and typing them into the login screen on demand.
+**QuickLogin** is a lightweight Windows utility that streamlines logging into **World of Warcraft** by securely storing account credentials and automating the login process.
 
-It is designed for convenience and simplicity, with a clean interface and no background processes.
-
-### FYI - This program does not actually launch the wow client, only logs in to the game when wow is open, might add launcher functionality in the future just isn't what I needed the tool for.
+It is designed for convenience and simplicity, with a modern interface and no background processes.
 
 ---
 
-## ✨ What QuickLogin Does
+## ✨ Features
 
-* Securely stores login credentials using **Windows Credential Manager**
-* Brings **World of Warcraft** to the foreground
-* Types the selected account’s username and password
-* Submits the login automatically
-* Exits immediately after completing the action
+* **Secure Credential Storage** - Uses Windows Credential Manager to safely store passwords
+* **Multiple Account Management** - Add, edit, and remove unlimited accounts
+* **Auto-Launch Game** - Optionally launch World of Warcraft automatically before logging in
+* **Automated Login** - Focuses the WoW window, types credentials, and submits login automatically
+* **Flexible Exit Options** - Choose to keep QuickLogin open or close it after logging in
+* **Modern UI** - Clean, professional interface with dark theme
 
 QuickLogin does **not** interact with the game client beyond sending standard keyboard input.
-
----
-
-## 📸 Screenshots
-
-### Main Window & Add / Edit Account
-
-<img width="600" height="680" alt="a" src="https://github.com/user-attachments/assets/50d2852a-a6fc-4693-b203-d81e4dfdbfb8" />
 
 ---
 
@@ -32,14 +23,16 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 * Windows 7 or newer
 * .NET Desktop Runtime 8
-* World of Warcraft running and on the login screen
+* World of Warcraft installed (if using auto-launch feature)
+
+---
 
 ## 📁 Installation 
 
-* Download - QuickLogin.zip
-* Extract
-* Run QuickLogin.exe
-* Right Click > Send to Desktop to make a shortcut
+1. Download **QuickLogin.zip**
+2. Extract to a folder of your choice
+3. Run **QuickLogin.exe**
+4. (Optional) Right-click > Send to Desktop to create a shortcut
 
 ---
 
@@ -49,42 +42,101 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 * No plaintext credential files
 * No network communication
 * No telemetry or background services
-
-All credentials are tied to the current Windows user account.
+* All credentials are tied to the current Windows user account
 
 ---
 
 ## 🚀 Usage
 
-1. Start **World of Warcraft** and wait at the login screen
-2. Launch **QuickLogin**
-3. Add one or more accounts
-4. Select an account from the dropdown
-5. Click **Log In** to login and keep QuickLogin Open   **OR**   Click **Log In & Close** to login and close QuickLogin
+### Basic Setup
+1. Launch **QuickLogin**
+2. Click **"+ Add Account"** to create a new account entry
+3. Enter a display name, username, and password
+4. Click **"Save"**
+5. Select your account from the dropdown
 
-QuickLogin will focus the WoW window, type the credentials, submit the login, and then close automatically.
+### Login Options
+
+**Option 1: Manual Launch**
+1. Start World of Warcraft and wait at the login screen
+2. Select your account in QuickLogin
+3. Click **"Login"** (keeps QuickLogin open) or **"Login & Close"** (closes after login)
+
+**Option 2: Auto-Launch** *(Recommended)*
+1. Click **"Browse..."** and select your **Wow.exe** file
+2. Check **"Auto-launch game when logging in"**
+3. Select your account from the dropdown
+4. Click **"Login & Close"** or **"Login"**
+5. QuickLogin will launch WoW, wait 10 seconds, then automatically log you in
+
+### Managing Accounts
+* **Add Account** - Create a new account entry
+* **Remove Account** - Delete the selected account (credentials removed from Credential Manager)
+* **Edit Account** - Modify display name, username, or password for existing accounts
 
 ---
 
 ## ⚠️ Important Notes
 
-* The **“Remember Account Name”** option must be **unchecked** on the WoW login screen
-* This tool relies on simulated keyboard input and requires the login screen to be active
+* The **"Remember Account Name"** option must be **unchecked** on the WoW login screen
+* This tool relies on simulated keyboard input
+* If not using auto-launch, WoW must be open and at the login screen before clicking Login
 * QuickLogin is intended for personal convenience only
 
+---
 
 ## ❓ FAQ
 
-Does QuickLogin automate gameplay?
+**Does QuickLogin automate gameplay?**
 * No. It only types credentials at the login screen.
 
-Does it modify game files or memory?
-* No.
+**Does it modify game files or memory?**
+* No. It only sends keyboard input to the login screen.
 
-Is this affiliated with Blizzard?
+**Can I use this with multiple WoW accounts?**
+* Yes! You can add unlimited accounts and switch between them.
+
+**Is the auto-launch feature required?**
+* No, it's optional. You can manually start WoW and use QuickLogin to login.
+
+**How do I change the auto-launch wait time?**
+* Currently set to 10 seconds. Future versions may include customization.
+
+**Is this affiliated with Blizzard?**
 * No. This is an independent, community-made utility.
+
+**Is this against WoW's Terms of Service?**
+* QuickLogin only automates the login process using standard keyboard input, similar to a password manager. It does not interact with gameplay. Use at your own discretion.
+
+---
+
+## 🎨 Interface
+
+* **Modern dark theme** with cyan accents
+* **Help button** (?) provides detailed usage instructions
+* **Clean layout** with clearly labeled sections
+* **Responsive buttons** with hover effects
+
+---
 
 ## 📄 License
 
-* This project is provided as-is for personal use.
-* No warranties are expressed or implied.
+* This project is provided as-is for personal use
+* No warranties are expressed or implied
+* Use at your own risk
+
+---
+
+## 🔧 Technical Details
+
+* **Framework**: .NET 8 (WPF)
+* **Dependencies**: 
+  - Windows Credential Manager (CredentialManagement)
+  - InputSimulatorStandard (keyboard simulation)
+* **Storage**: Account metadata stored in `%AppData%/QuickLogin/accounts.json`
+* **Settings**: Application settings stored in `%AppData%/QuickLogin/settings.json`
+
+---
+
+
+
