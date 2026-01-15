@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "QuickLogin/1.0.0": {
+      "QuickLogin/1.1.2": {
         "dependencies": {
           "CredentialManagement": "1.0.2",
           "InputSimulatorStandard": "1.0.0"
@@ -34,7 +34,7 @@
     }
   },
   "libraries": {
-    "QuickLogin/1.0.0": {
+    "QuickLogin/1.1.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
