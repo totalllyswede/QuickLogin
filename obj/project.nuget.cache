@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "kZiujemOZNM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bass_\\source\\repos\\QuickLogin\\QuickLogin\\QuickLogin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bass_\\.nuget\\packages\\credentialmanagement\\1.0.2\\credentialmanagement.1.0.2.nupkg.sha512",
+    "C:\\Users\\bass_\\.nuget\\packages\\inputsimulatorstandard\\1.0.0\\inputsimulatorstandard.1.0.0.nupkg.sha512",
+    "C:\\Users\\bass_\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.23\\microsoft.windowsdesktop.app.ref.8.0.23.nupkg.sha512",
+    "C:\\Users\\bass_\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.23\\microsoft.netcore.app.ref.8.0.23.nupkg.sha512",
+    "C:\\Users\\bass_\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.23\\microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512",
+    "C:\\Users\\bass_\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.23\\microsoft.netcore.app.host.win-x64.8.0.23.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'CredentialManagement 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\bass_\\source\\repos\\QuickLogin\\QuickLogin\\QuickLogin.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\bass_\\source\\repos\\QuickLogin\\QuickLogin\\QuickLogin.csproj",
+      "libraryId": "CredentialManagement",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}
