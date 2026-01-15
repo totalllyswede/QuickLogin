@@ -60,9 +60,7 @@ All credentials are tied to the current Windows user account.
 2. Launch **QuickLogin**
 3. Add one or more accounts
 4. Select an account from the dropdown
-5. Click **Log In** to login and keep QuickLogin Open
-**OR**
-6. Click **Log In & Close** to login and close QuickLogin
+5. Click **Log In** to login and keep QuickLogin Open   **OR**   Click **Log In & Close** to login and close QuickLogin
 
 QuickLogin will focus the WoW window, type the credentials, submit the login, and then close automatically.
 
