@@ -22,15 +22,9 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ## 📸 Screenshots
 
-### Main Window
+### Main Window & Add / Edit Account
 
-<img width="500" height="380" alt="A" src="https://github.com/user-attachments/assets/22ca0ee0-a625-4ffa-9f53-b53a6596abb6" />
-
-
-### Add / Edit Account
-
-
-<img width="480" height="360" alt="B" src="https://github.com/user-attachments/assets/3f783156-8ce1-4318-81e6-41f121678c8b" />
+<img width="600" height="680" alt="a" src="https://github.com/user-attachments/assets/50d2852a-a6fc-4693-b203-d81e4dfdbfb8" />
 
 ---
 
@@ -66,7 +60,9 @@ All credentials are tied to the current Windows user account.
 2. Launch **QuickLogin**
 3. Add one or more accounts
 4. Select an account from the dropdown
-5. Click **Log In**
+5. Click **Log In** to login and keep QuickLogin Open
+**OR**
+6. Click **Log In & Close** to login and close QuickLogin
 
 QuickLogin will focus the WoW window, type the credentials, submit the login, and then close automatically.
 
