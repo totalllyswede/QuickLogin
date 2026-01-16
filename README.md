@@ -75,7 +75,6 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 ### Managing Accounts
 * **Add Account** - Create a new account entry
 * **Remove Account** - Delete the selected account (credentials removed from Credential Manager)
-* **Edit Account** - Modify display name, username, or password for existing accounts
 
 ---
 
