@@ -6,8 +6,8 @@
         mc:Ignorable="d" 
         x:Class="QuickLogin.MainWindow"
         Title="QuickLogin"
-        Height="480" 
-        Width="550"
+        Height="470" 
+        Width="540"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#1A1A2E" 
@@ -116,9 +116,9 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Width="528" Height="458">
         <!-- Main Content -->
-        <Grid Margin="30,20,30,30">
+        <Grid Margin="30,30,30,30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <!-- Header -->
@@ -126,9 +126,8 @@
                 <!-- Account Selection -->
                 <RowDefinition Height="70"/>
                 <!-- WoW Path -->
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
                 <!-- Launch Checkbox -->
-                <RowDefinition Height="*"/>
                 <!-- Spacer -->
                 <RowDefinition Height="50"/>
                 <!-- Account Management -->
@@ -320,17 +319,15 @@
             <!-- Launch Checkbox -->
             <CheckBox x:Name="LaunchWowCheckbox"
                       Grid.Row="3"
-                      Content="Auto-launch game when logging in"
+                      Content="Launch World of Warcraft When Using QuickLogin?"
                       FontFamily="Segoe UI"
-                      FontSize="14"
+                      FontSize="18"
                       Foreground="#E4E4E4"
-                      VerticalAlignment="Center"
-                      Margin="2,0,0,0"
                       Checked="LaunchWowCheckbox_Changed"
-                      Unchecked="LaunchWowCheckbox_Changed"/>
+                      Unchecked="LaunchWowCheckbox_Changed" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8,-4,0,0"/>
 
             <!-- Account Management Buttons -->
-            <UniformGrid Grid.Row="5" 
+            <UniformGrid Grid.Row="4" 
                          Columns="2" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center">
@@ -345,7 +342,7 @@
             </UniformGrid>
 
             <!-- Login Buttons -->
-            <UniformGrid Grid.Row="6" 
+            <UniformGrid Grid.Row="5" 
                          Columns="3"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Bottom">
