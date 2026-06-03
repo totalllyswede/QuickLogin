@@ -21,7 +21,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ---
 
-## 🖥️ Requirements
+## Requirements
 
 * Windows 7 or newer
 * .NET Desktop Runtime 8
