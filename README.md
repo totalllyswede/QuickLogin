@@ -31,7 +31,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ## Installation 
 
-1. Download **QuickLogin.zip**
+1. Download Latest Release -  **QuickLogin 1.3.zip**
 2. Extract to a folder of your choice
 3. Run **QuickLogin.exe**
 
