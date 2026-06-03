@@ -12,7 +12,7 @@ It is designed for convenience and simplicity, with a modern interface and no ba
 * **Multiple Account Management** - Add, edit, and remove unlimited accounts
 * **Auto-Launch Game** - Optionally launch World of Warcraft automatically before logging in
 * **Automated Login** - Focuses the WoW window, types credentials, and submits login automatically
-* * **Clean WDB** - Deletes wow cache folder located in the same directory as your wow.exe. This helps private servers run better, use this every few times you login.
+* **Clean WDB** - Deletes wow cache folder located in the same directory as your wow.exe. This helps private servers run better, use this every few times you login.
 
 QuickLogin does **not** interact with the game client beyond sending standard keyboard input.
 
