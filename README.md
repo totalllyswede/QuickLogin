@@ -6,14 +6,13 @@ It is designed for convenience and simplicity, with a modern interface and no ba
 
 ---
 
-## ✨ Features
+## Features
 
 * **Secure Credential Storage** - Uses Windows Credential Manager to safely store passwords
 * **Multiple Account Management** - Add, edit, and remove unlimited accounts
 * **Auto-Launch Game** - Optionally launch World of Warcraft automatically before logging in
 * **Automated Login** - Focuses the WoW window, types credentials, and submits login automatically
-* **Flexible Exit Options** - Choose to keep QuickLogin open or close it after logging in
-* **Modern UI** - Clean, professional interface with dark theme
+* * **Clean WDB** - Deletes wow cache folder located in the same directory as your wow.exe. This helps private servers run better, use this every few times you login.
 
 QuickLogin does **not** interact with the game client beyond sending standard keyboard input.
 
@@ -26,20 +25,19 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 * Windows 7 or newer
 * .NET Desktop Runtime 8
-* World of Warcraft installed (if using auto-launch feature)
+* World of Warcraft installed
 
 ---
 
-## 📁 Installation 
+## Installation 
 
 1. Download **QuickLogin.zip**
 2. Extract to a folder of your choice
 3. Run **QuickLogin.exe**
-4. (Optional) Right-click > Send to Desktop to create a shortcut
 
 ---
 
-## 🔒 Security
+## Security
 
 * Credentials are stored **only** in Windows Credential Manager
 * No plaintext credential files
@@ -49,7 +47,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Basic Setup
 1. Launch **QuickLogin**
@@ -78,7 +76,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ---
 
-## ⚠️ Important Notes
+## Important Notes
 
 * The **"Remember Account Name"** option must be **unchecked** on the WoW login screen
 * This tool relies on simulated keyboard input
@@ -87,7 +85,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Does QuickLogin automate gameplay?**
 * No. It only types credentials at the login screen.
@@ -112,16 +110,7 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 
 ---
 
-## 🎨 Interface
-
-* **Modern dark theme** with cyan accents
-* **Help button** (?) provides detailed usage instructions
-* **Clean layout** with clearly labeled sections
-* **Responsive buttons** with hover effects
-
----
-
-## 📄 License
+## License
 
 * This project is provided as-is for personal use
 * No warranties are expressed or implied
@@ -135,10 +124,6 @@ QuickLogin does **not** interact with the game client beyond sending standard ke
 * **Dependencies**: 
   - Windows Credential Manager (CredentialManagement)
   - InputSimulatorStandard (keyboard simulation)
-* **Storage**: Account metadata stored in `%AppData%/QuickLogin/accounts.json`
-* **Settings**: Application settings stored in `%AppData%/QuickLogin/settings.json`
-
----
 
 
 
