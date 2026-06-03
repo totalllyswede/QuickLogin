@@ -16,7 +16,7 @@ It is designed for convenience and simplicity, with a modern interface and no ba
 
 QuickLogin does **not** interact with the game client beyond sending standard keyboard input.
 
-<img width="633" height="506" alt="D" src="https://github.com/user-attachments/assets/fb8134b4-df15-4ea5-825e-78f7648735aa" />
+<img width="522" height="448" alt="quicklogin" src="https://github.com/user-attachments/assets/4c459d52-7213-481f-bb81-c4dc4fc6411a" />
 
 
 ---
