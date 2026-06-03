@@ -83,6 +83,9 @@
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#252538"/>
                 </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.4"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
 
@@ -118,7 +121,7 @@
 
     <Grid Width="528" Height="458">
         <!-- Main Content -->
-        <Grid Margin="30,30,30,30">
+        <Grid Margin="30,20,30,30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <!-- Header -->
@@ -126,20 +129,22 @@
                 <!-- Account Selection -->
                 <RowDefinition Height="70"/>
                 <!-- WoW Path -->
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="80"/>
                 <!-- Launch Checkbox -->
                 <!-- Spacer -->
                 <RowDefinition Height="50"/>
                 <!-- Account Management -->
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="11"/>
+                <RowDefinition Height="32"/>
                 <!-- Login Buttons -->
             </Grid.RowDefinitions>
 
             <!-- Header with Title and Help -->
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Height="50" Margin="0,0,0,10">
                 <TextBlock Text="QuickLogin" 
-                           FontFamily="Segoe UI Light" 
-                           FontSize="32" 
+                           FontFamily="Segoe UI" 
+                           FontSize="36" 
                            Foreground="White" 
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"/>
@@ -291,45 +296,68 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+
                     <Border Grid.Column="0"
-                            Background="#2E2E48"
-                            BorderBrush="#3D3D5C"
-                            BorderThickness="1"
-                            CornerRadius="5,0,0,5"
-                            Padding="12,0"
-                            Height="42">
-                        <TextBlock x:Name="ExePathText" 
-                                   Text="Not set" 
-                                   FontFamily="Segoe UI"
-                                   FontSize="14"
-                                   Foreground="#808080"
-                                   VerticalAlignment="Center"
-                                   TextTrimming="CharacterEllipsis"/>
+            Background="#2E2E48"
+            BorderBrush="#3D3D5C"
+            BorderThickness="1"
+            CornerRadius="5,0,0,5"
+            Padding="12,0"
+            Height="42">
+                        <TextBlock x:Name="ExePathText"
+                   Text="Not set"
+                   FontFamily="Segoe UI"
+                   FontSize="14"
+                   Foreground="#808080"
+                   VerticalAlignment="Center"
+                   TextTrimming="CharacterEllipsis"/>
                     </Border>
+
                     <Button Grid.Column="1"
-                            Content="Browse" 
-                            Style="{StaticResource SecondaryButton}"
-                            Click="BrowseWowExe_Click"
-                            Height="42"
-                            Padding="20,0"/>
+            Content="Browse"
+            Style="{StaticResource SecondaryButton}"
+            Click="BrowseWowExe_Click"
+            Height="42"
+            Padding="20,0"/>
+
+                    <Button Grid.Column="2"
+            x:Name="ClearExeButton"
+            Content="✕"
+            Style="{StaticResource SecondaryButton}"
+            Click="ClearWowExe_Click"
+            Height="42"
+            Width="42"
+            IsEnabled="False"
+            ToolTip="Clear selected executable"/>
+
                 </Grid>
             </StackPanel>
 
             <!-- Launch Checkbox -->
             <CheckBox x:Name="LaunchWowCheckbox"
                       Grid.Row="3"
-                      Content="Launch World of Warcraft When Using QuickLogin?"
+                      Content="Auto Launch Game?"
                       FontFamily="Segoe UI"
                       FontSize="18"
                       Foreground="#E4E4E4"
                       Checked="LaunchWowCheckbox_Changed"
-                      Unchecked="LaunchWowCheckbox_Changed" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="8,-4,0,0"/>
+                      Unchecked="LaunchWowCheckbox_Changed" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="8,-4,0,0" Margin="0,10,0,0"/>
+            <!-- Clean WDB Button -->
+            <Button x:Name="CleanWdbButton"
+        Grid.Row="3"
+        Content="🧹 Clean WDB"
+        Style="{StaticResource SecondaryButton}"
+        Click="CleanWdb_Click"
+        HorizontalAlignment="Left"
+        Width="200"
+        VerticalAlignment="Center"
+        IsEnabled="False" Margin="268,10,0,0"/>
 
             <!-- Account Management Buttons -->
             <UniformGrid Grid.Row="4" 
-                         Columns="2" 
-                         HorizontalAlignment="Stretch"
+                         Columns="2"
                          VerticalAlignment="Center">
                 <Button Content="+ Add Account" 
                         Style="{StaticResource SecondaryButton}" 
@@ -344,8 +372,7 @@
             <!-- Login Buttons -->
             <UniformGrid Grid.Row="5" 
                          Columns="3"
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Bottom">
+                         VerticalAlignment="Top" Grid.RowSpan="3" Height="50" Margin="0,20,0,0">
                 <Button Content="Login &amp; Close"
                         Style="{StaticResource PrimaryButton}" 
                         Click="TypeCredentials_Click"
@@ -357,7 +384,7 @@
                 <Button Content="Exit"
                         Style="{StaticResource SecondaryButton}" 
                         Click="Close_Click"
-                        Margin="5,0,0,0"/>
+                        Margin="5,0,0,0" Height="45"/>
             </UniformGrid>
         </Grid>
     </Grid>

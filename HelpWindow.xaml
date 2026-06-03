@@ -47,7 +47,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="20">
+    <Grid Margin="20,0,20,10" HorizontalAlignment="Center">
         <!-- Close button -->
         <Button Content="✕" 
                 Style="{StaticResource CloseButton}"
@@ -140,11 +140,15 @@
                                 FontSize="14"
                                 Foreground="#E74C3C"
                                 Text="⚠ Important" HorizontalAlignment="Center"/>
-                            <TextBlock TextWrapping="Wrap"
+                            <TextBlock
                                 FontFamily="Segoe UI"
                                 FontSize="12"
                                 Foreground="#E4E4E4"
-                                Margin="0,5,0,0" HorizontalAlignment="Center"><Run Text="Uncheck 'Remember Account Name' on WoW login screen"/><LineBreak/><Run Text="Passwords stored securely in Windows Credential Manager"/></TextBlock>
+                                Margin="0,5,0,0" HorizontalAlignment="Center">
+                                <Run Text="-Uncheck 'Remember Account Name' on WoW login screen"/><LineBreak/>
+                                <Run Text="-Passwords stored securely in Windows Credential Manager"/><LineBreak/>
+                                <Run Text="-Do Not Use with multiple WoW Instances Open"/><LineBreak/>
+                                <Run Text="-QuickLogin can't tell which WoW Instance is on the Login Screen"/></TextBlock>
                         </StackPanel>
                     </Border>
 

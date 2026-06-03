@@ -64,7 +64,10 @@ namespace QuickLogin
             if (!string.IsNullOrEmpty(_wowExePath))
             {
                 ExePathText.Text = Path.GetFileName(_wowExePath);
+                CleanWdbButton.IsEnabled = true;  // ← add this line
+                ClearExeButton.IsEnabled = true;  // ← add
             }
+
 
             LaunchWowCheckbox.IsChecked = _launchWowEnabled;
         }
@@ -103,6 +106,8 @@ namespace QuickLogin
                 GameLauncherService.SaveWowExePath(_wowExePath);
 
                 ExePathText.Text = Path.GetFileName(_wowExePath);
+                CleanWdbButton.IsEnabled = true;  // ← add this line
+                ClearExeButton.IsEnabled = true;  // ← add
 
                 MessageBox.Show("WoW executable path saved!", "Success",
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -202,6 +207,48 @@ namespace QuickLogin
         }
 
         /// <summary>
+        /// Deletes the WDB folder in the same directory as the WoW executable
+        /// </summary>
+        private void CleanWdb_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(_wowExePath) || !File.Exists(_wowExePath))
+            {
+                MessageBox.Show("WoW Executable must be selected to clear WDB Folder",
+                    "No Executable Set", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            string wowDir = Path.GetDirectoryName(_wowExePath)!;
+            string wdbPath = Path.Combine(wowDir, "WDB");
+
+            if (!Directory.Exists(wdbPath))
+            {
+                MessageBox.Show("WDB folder not found — nothing to clean.",
+                    "WDB Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                $"Delete the WDB folder at:\n{wdbPath}\n\nThis cannot be undone.",
+                "Confirm Clean WDB", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (confirm != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                Directory.Delete(wdbPath, recursive: true);
+                MessageBox.Show("WDB folder deleted successfully.",
+                    "Done", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to delete WDB folder:\n{ex.Message}",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// Focus World of Warcraft, type credentials, then close app
         /// </summary>
         private async void TypeCredentials_Click(object sender, RoutedEventArgs e)
@@ -287,6 +334,19 @@ namespace QuickLogin
         private void AccountCombo_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             // Can be used to enable/disable buttons based on selection
+        }
+        /// <summary>
+        /// Clears the saved WoW executable path
+        /// </summary>
+        private void ClearWowExe_Click(object sender, RoutedEventArgs e)
+        {
+            _wowExePath = null;
+            GameLauncherService.SaveWowExePath(string.Empty);
+            ExePathText.Text = "Not set";
+            ExePathText.Foreground = new System.Windows.Media.SolidColorBrush(
+                (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#808080"));
+            ClearExeButton.IsEnabled = false;
+            CleanWdbButton.IsEnabled = false;
         }
     }
 }
